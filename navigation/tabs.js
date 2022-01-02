@@ -7,6 +7,20 @@ import {Home, Portfolio, Market, Profile} from '../screens';
 import {TabIcon} from '../components/Index';
 import {COLORS, icons} from '../constants';
 
+const TabBarCustomButton = ({children, onPress}) => {
+  return (
+    <TouchableOpacity
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+      onPress={onPress}>
+      {children}
+    </TouchableOpacity>
+  );
+};
+
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
@@ -60,6 +74,13 @@ const Tabs = () => {
               />
             );
           },
+
+          tabBarButton: props => (
+            <TabBarCustomButton
+              {...props}
+              onPress={() => console.log('TradeButton')}
+            />
+          ),
         }}
       />
       <Tab.Screen
