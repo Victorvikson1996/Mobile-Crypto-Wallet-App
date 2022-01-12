@@ -11,6 +11,10 @@ import Tabs from './navigation/tabs';
 
 const Stack = createNativeStackNavigator();
 
+const screenOptions = {
+  headerShown: false,
+};
+
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 const App = () => {
@@ -18,9 +22,7 @@ const App = () => {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator
-          screenOptions={{
-            headerShown: false,
-          }}
+          screenOptions={screenOptions}
           initialRouteName={'MainLayout'}>
           <Stack.Screen name="MainLayout" component={Tabs} />
         </Stack.Navigator>
